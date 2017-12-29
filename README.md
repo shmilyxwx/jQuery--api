@@ -1,11 +1,14 @@
-window.jQuery = function (nodeOrSelector){
+			window.jQuery = function (nodeOrSelector){
 				let node = {}
 				if(typeof nodeOrSelector === 'string'){
 					node = document.querySelectorAll(nodeOrSelector)
 				}else{
-					if(nodeOrSelector.length === "undefined"){
-						id = "#"+nodeOrSelector.id
-						node = document.querySelectorAll(id) 
+					if(nodeOrSelector instanceof Node){
+						node = {
+							0: nodeOrSelector,
+							length: 1
+						}
+
 					}else{
 						node = nodeOrSelector
 					}
@@ -25,7 +28,7 @@ window.jQuery = function (nodeOrSelector){
 				}
 			}
 			window.$ = jQuery
-			var $div = $("div")
+			var $div = $(div1)
 			$div.addClass('red')
 			$div.setText('hi')
 			
